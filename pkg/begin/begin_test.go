@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+//  Пример использования unit-тестов
+
 func TestBegin15(t *testing.T) {
 	type dataForBegin15 struct {
 		s     float64
