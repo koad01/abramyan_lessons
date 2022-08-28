@@ -34,55 +34,149 @@ func TestBegin15(t *testing.T) {
 }
 
 func TestBegin20(t *testing.T) {
-	s := Begin20(0, 3, 0, 2)
-	if s != 3.605551275463989 {
-		t.Errorf("s (%v) != %v", s, 3.605551275463989)
+	type dataForBegin20 struct {
+		x1    float64
+		x2    float64
+		y1    float64
+		y2    float64
+		wantS float64
+	}
+	var tests = []dataForBegin20{
+		{1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v, %v, %v, %v", tt.x1, tt.x2, tt.y1, tt.y2, tt.wantS)
+		functionForTest := func(t *testing.T) {
+			ansS := Begin20(tt.x1, tt.x2, tt.y1, tt.y2)
+			if ansS != tt.wantS {
+				t.Errorf("got %v, wantS %v", ansS, tt.wantS)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
 func TestBegin21(t *testing.T) {
-	s, per := Begin21(0, 1, 2, 0, 1, 2)
-	if s != 0.866025403784439 {
-		t.Errorf("s (%v) != %v", s, 0.866025403784439)
+	type dataForBegin21 struct {
+		x1      float64
+		x2      float64
+		x3      float64
+		y1      float64
+		y2      float64
+		y3      float64
+		wantS   float64
+		wantPer float64
 	}
-	if per != 4.242640687119286 {
-		t.Errorf("per (%v) != %v", per, 4.242640687119286)
+	var tests = []dataForBegin21{
+		{1, 1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 1, 1},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v, %v, %v", tt.x1, tt.x2, tt.x3, tt.y1, tt.y2, tt.y3, tt.wantS, tt.wantPer)
+		functionForTest := func(t *testing.T) {
+			ansS, ansPer := Begin21(tt.x1, tt.x2, tt.x3, tt.y1, tt.y2, tt.y3)
+			if ansS != tt.wantS {
+				t.Errorf("got %v, wantS %v", ansS, tt.wantS)
+			}
+			if ansPer != tt.wantPer {
+				t.Errorf("got %v, wantPer %v", ansPer, tt.wantPer)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
 func TestBegin22(t *testing.T) {
-	a, b := Begin22(2, 4)
-	if a != 4 {
-		t.Errorf("a (%v) != %v", a, 4)
+	type dataForBegin22 struct {
+		a     float64
+		b     float64
+		wantB float64
+		wantA float64
 	}
-	if b != 2 {
-		t.Errorf("b (%v) != %v", b, 2)
+	var tests = []dataForBegin22{
+		{1, 2, 2, 1},
+		{2, 1, 1, 2},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v, %v, %v", tt.a, tt.b, tt.wantA, tt.wantB)
+		functionForTest := func(t *testing.T) {
+			ansA, ansB := Begin22(tt.a, tt.b)
+			if ansA != tt.wantA {
+				t.Errorf("got %v, wantA %v", ansA, tt.wantA)
+			}
+			if ansB != tt.wantB {
+				t.Errorf("got %v, wantB %v", ansB, tt.wantB)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
 func TestBegin23(t *testing.T) {
-	a, b, c := Begin23(2, 4, 6)
-	if a != 6 {
-		t.Errorf("a (%v) != %v", a, 6)
+	type dataForBegin23 struct {
+		a     float64
+		b     float64
+		c     float64
+		wantB float64
+		wantA float64
+		wantC float64
 	}
-	if b != 2 {
-		t.Errorf("b (%v) != %v", b, 2)
+	var tests = []dataForBegin23{
+		{1, 2, 2, 1, 2, 2},
+		{2, 1, 1, 2, 2, 2},
 	}
-	if c != 4 {
-		t.Errorf("c (%v) != %v", c, 4)
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v", tt.a, tt.b, tt.c, tt.wantA, tt.wantB, tt.wantC)
+		functionForTest := func(t *testing.T) {
+			ansA, ansB, ansC := Begin23(tt.a, tt.b, tt.c)
+			if ansA != tt.wantA {
+				t.Errorf("got %v, wantA %v", ansA, tt.wantA)
+			}
+			if ansB != tt.wantB {
+				t.Errorf("got %v, wantB %v", ansB, tt.wantB)
+			}
+			if ansC != tt.wantC {
+				t.Errorf("got %v, wantC %v", ansC, tt.wantC)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
 func TestBegin24(t *testing.T) {
-	a, b, c := Begin23(2, 4, 6)
-	if a != 6 {
-		t.Errorf("a (%v) != %v", a, 6)
+	type dataForBegin24 struct {
+		a     float64
+		b     float64
+		c     float64
+		wantB float64
+		wantA float64
+		wantC float64
 	}
-	if b != 2 {
-		t.Errorf("b (%v) != %v", b, 2)
+	var tests = []dataForBegin24{
+		{1, 2, 2, 1, 2, 2},
+		{2, 1, 1, 2, 2, 2},
 	}
-	if c != 4 {
-		t.Errorf("c (%v) != %v", c, 4)
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v", tt.a, tt.b, tt.c, tt.wantA, tt.wantB, tt.wantC)
+		functionForTest := func(t *testing.T) {
+			ansA, ansB, ansC := Begin24(tt.a, tt.b, tt.c)
+			if ansA != tt.wantA {
+				t.Errorf("got %v, wantA %v", ansA, tt.wantA)
+			}
+			if ansB != tt.wantB {
+				t.Errorf("got %v, wantB %v", ansB, tt.wantB)
+			}
+			if ansC != tt.wantC {
+				t.Errorf("got %v, wantC %v", ansC, tt.wantC)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
