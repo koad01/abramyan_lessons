@@ -14,8 +14,8 @@ func TestBegin15(t *testing.T) {
 		wantL float64
 	}
 	var tests = []dataForBegin15{
-		{1, 1.1286652959662007, 7},
-		{7, 2.9861676865556794, 14},
+		{1, 1.1286652959662007, 3.5440090293338704},
+		{7, 2.9861676865556794, 9.376566535784834},
 	}
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v, %v, %v", tt.s, tt.wantD, tt.wantL)
@@ -42,8 +42,8 @@ func TestBegin20(t *testing.T) {
 		wantS float64
 	}
 	var tests = []dataForBegin20{
-		{1, 1, 1, 1, 1},
-		{1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 0},
+		{1, 1, 1, 1, 0},
 	}
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v, %v, %v, %v, %v", tt.x1, tt.x2, tt.y1, tt.y2, tt.wantS)
@@ -70,8 +70,8 @@ func TestBegin21(t *testing.T) {
 		wantPer float64
 	}
 	var tests = []dataForBegin21{
-		{1, 1, 1, 1, 1, 1, 1, 1},
-		{1, 1, 1, 1, 1, 1, 1, 1},
+		{1, 1, 1, 1, 1, 1, 0, 0},
+		{1, 1, 1, 1, 1, 1, 0, 0},
 	}
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v, %v, %v", tt.x1, tt.x2, tt.x3, tt.y1, tt.y2, tt.y3, tt.wantS, tt.wantPer)
@@ -97,8 +97,8 @@ func TestBegin22(t *testing.T) {
 		wantA float64
 	}
 	var tests = []dataForBegin22{
-		{1, 2, 2, 1},
-		{2, 1, 1, 2},
+		{1, 2, 1, 2},
+		{2, 1, 2, 1},
 	}
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v, %v, %v, %v", tt.a, tt.b, tt.wantA, tt.wantB)
@@ -127,7 +127,7 @@ func TestBegin23(t *testing.T) {
 	}
 	var tests = []dataForBegin23{
 		{1, 2, 2, 1, 2, 2},
-		{2, 1, 1, 2, 2, 2},
+		{2, 1, 1, 2, 1, 1},
 	}
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v", tt.a, tt.b, tt.c, tt.wantA, tt.wantB, tt.wantC)
@@ -158,8 +158,8 @@ func TestBegin24(t *testing.T) {
 		wantC float64
 	}
 	var tests = []dataForBegin24{
-		{1, 2, 2, 1, 2, 2},
-		{2, 1, 1, 2, 2, 2},
+		{1, 2, 2, 2, 2, 1},
+		{2, 1, 1, 1, 1, 2},
 	}
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v", tt.a, tt.b, tt.c, tt.wantA, tt.wantB, tt.wantC)
