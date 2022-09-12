@@ -181,29 +181,78 @@ func TestBegin24(t *testing.T) {
 }
 
 func TestBegin25(t *testing.T) {
-	y := Begin25(2)
-	if y != 175 {
-		t.Errorf("y (%v) != %v", y, 175)
+	type dataForBegin25 struct {
+		x     float64
+		wantY float64
+	}
+	var tests = []dataForBegin24{
+		{1, 4},
+		{2, 175},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v", tt.x, tt.wantY)
+		functionForTest := func(t *testing.T) {
+			ansY := Begin25(tt.x)
+			if ansY != tt.wantY {
+				t.Errorf("got %v, wantA %v", ansY, tt.wantY)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
 func TestBegin26(t *testing.T) {
-	y := Begin26(3)
-	if y != 2 {
-		t.Errorf("y (%v) != %v", y, 2)
+	type dataForBegin26 struct {
+		x     float64
+		wantY float64
+	}
+	var tests = []dataForBegin24{
+		{1, 314},
+		{2, 13},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v", tt.x, tt.wantY)
+		functionForTest := func(t *testing.T) {
+			ansY := Begin26(tt.x)
+			if ansY != tt.wantY {
+				t.Errorf("got %v, wantA %v", ansY, tt.wantY)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
 func TestBegin27(t *testing.T) {
-	a2, a4, a8 := Begin27(2)
-	if a2 != 4 {
-		t.Errorf("a2 (%v) != %v", a2, 4)
+	type dataForBegin24 struct {
+		a     float64
+		b     float64
+		c     float64
+		wantB float64
+		wantA float64
+		wantC float64
 	}
-	if a4 != 16 {
-		t.Errorf("a4 (%v) != %v", a4, 16)
+	var tests = []dataForBegin24{
+		{1, 2, 2, 2, 2, 1},
+		{2, 1, 1, 1, 1, 2},
 	}
-	if a8 != 256 {
-		t.Errorf("a8 (%v) != %v", a8, 256)
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v, %v, %v, %v, %v", tt.a, tt.b, tt.c, tt.wantA, tt.wantB, tt.wantC)
+		functionForTest := func(t *testing.T) {
+			ansA, ansB, ansC := Begin24(tt.a, tt.b, tt.c)
+			if ansA != tt.wantA {
+				t.Errorf("got %v, wantA %v", ansA, tt.wantA)
+			}
+			if ansB != tt.wantB {
+				t.Errorf("got %v, wantB %v", ansB, tt.wantB)
+			}
+			if ansC != tt.wantC {
+				t.Errorf("got %v, wantC %v", ansC, tt.wantC)
+			}
+		}
+		t.Run(testname, functionForTest)
+
 	}
 }
 
