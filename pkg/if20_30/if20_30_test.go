@@ -177,3 +177,91 @@ func TestIf26(t *testing.T) {
 
 	}
 }
+
+func TestIf27(t *testing.T) {
+	type dataForBegin15 struct {
+		x     float64
+		wantF float64
+	}
+	var tests = []dataForBegin15{
+		{8, 1},
+		{-2, 0},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v", tt.x, tt.wantF)
+		functionForTest := func(t *testing.T) {
+			ansF := If27(tt.x)
+			if ansF != tt.wantF {
+				t.Errorf("got %v, wantF %v", ansF, tt.wantF)
+			}
+		}
+		t.Run(testname, functionForTest)
+
+	}
+}
+
+func TestIf28(t *testing.T) {
+	type dataForBegin15 struct {
+		x     int16
+		wantF int16
+	}
+	var tests = []dataForBegin15{
+		{8, 366},
+		{678, 365},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v", tt.x, tt.wantF)
+		functionForTest := func(t *testing.T) {
+			ansF := If28(tt.x)
+			if ansF != tt.wantF {
+				t.Errorf("got %v, wantF %v", ansF, tt.wantF)
+			}
+		}
+		t.Run(testname, functionForTest)
+
+	}
+}
+
+func TestIf29(t *testing.T) {
+	type dataForBegin15 struct {
+		x       int16
+		wantXar string
+	}
+	var tests = []dataForBegin15{
+		{8, "Положительное четное"},
+		{671, "Положительное нечетное"},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v", tt.x, tt.wantXar)
+		functionForTest := func(t *testing.T) {
+			ansXar := If29(tt.x)
+			if ansXar != tt.wantXar {
+				t.Errorf("got %v, wantXar %v", ansXar, tt.wantXar)
+			}
+		}
+		t.Run(testname, functionForTest)
+
+	}
+}
+
+func TestIf30(t *testing.T) {
+	type dataForBegin15 struct {
+		x       int16
+		wantXar string
+	}
+	var tests = []dataForBegin15{
+		{8, "Четное однозначное"},
+		{671, "Нечетное трёхзначное"},
+	}
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%v, %v", tt.x, tt.wantXar)
+		functionForTest := func(t *testing.T) {
+			ansXar := If30(tt.x)
+			if ansXar != tt.wantXar {
+				t.Errorf("got %v, wantXar %v", ansXar, tt.wantXar)
+			}
+		}
+		t.Run(testname, functionForTest)
+
+	}
+}
